@@ -26,4 +26,23 @@ class Codewars
     return slice.reduce(:+)
   end
 
+  def opposite(n)
+    return n * -1
+  end
+
+  def count_sheep(array)
+    if array.nil?
+      return 0
+    end
+    return array.select{ |sheep| sheep == true }.count
+  end
+
+  def open_or_senior(data)
+    return data[0] >= 55 && data[1] > 7 ? "Senior" : "Open"
+  end
+
+  def open_or_senior_array(data)
+    data.map { |member| open_or_senior(member) }
+  end
+
 end
