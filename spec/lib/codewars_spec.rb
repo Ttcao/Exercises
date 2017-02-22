@@ -138,4 +138,40 @@ describe Codewars do
     expect(actual).to eq(expected)
   end
 
+  it "should return the longest consectutive string using two strings from an array" do
+    actual = codewars.longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2)
+    expected = "abigailtheta"
+    expect(actual).to eq(expected)
+  end
+
+  it "should return the longest consectutive string using two strings from an array when k is negative" do
+    actual = codewars.longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], -2)
+    expected = ""
+    expect(actual).to eq(expected)
+  end
+
+  it "should return the longest consectutive string using two strings from an array when k > size of array" do
+    actual = codewars.longest_consec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15)
+    expected = ""
+    expect(actual).to eq(expected)
+  end
+
+  it "should return the longest consectutive string using two strings from an empty array" do
+    actual = codewars.longest_consec([], 3)
+    expected = ""
+    expect(actual).to eq(expected)
+  end
+
+  # it "should find the int that appears an odd number of times #1" do
+  #   actual = codewars.find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
+  #   expected = -5
+  #   expect(actual).to eq(expected)
+  # end
+  #
+  # it "should find the int that appears an odd number of times #2" do
+  #   actual = codewars.find_it([1,1,2,-2,5,2,4,4,-1,-2,5])
+  #   expected = -1
+  #   expect(actual).to eq(expected)
+  # end
+
 end

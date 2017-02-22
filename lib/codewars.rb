@@ -45,4 +45,27 @@ class Codewars
     data.map { |member| open_or_senior(member) }
   end
 
+  def longest_consec(strarr, k)
+    return "" if strarr.empty? || k <= 0
+    joined_arr = strarr.map.with_index do |word, index|
+      consec_str = ""
+      (index..(index+k-1)).each do |i|
+        consec_str << strarr[i] if (index+k-1) < strarr.length
+      end
+      consec_str
+    end
+    sorted = joined_arr.sort_by { |word| word.length }
+    max_length = sorted[sorted.length - 1].length
+    words_with_max_length = sorted.select { |elem| elem.length == max_length}
+    return words_with_max_length[0]
+  end
+
+  # def longest_consec(strarr, k)
+  #   return "" unless k.between?(1, strarr.length)
+  #   strarr.each_cons(k).map(&:join).max_by(&:length) || ""
+  # end
+
+  # def find_it(seq)
+  # end
+
 end
