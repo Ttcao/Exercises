@@ -60,12 +60,18 @@ class Codewars
     return words_with_max_length[0]
   end
 
-  # def longest_consec(strarr, k)
-  #   return "" unless k.between?(1, strarr.length)
-  #   strarr.each_cons(k).map(&:join).max_by(&:length) || ""
-  # end
+  def error_printer(string)
+    printer_errors = ("n".."z").to_a
 
-  # def find_it(seq)
-  # end
+    chars = string.split("")
+    length_of_printer_string = chars.count
+    num_of_printer_errors = chars.select { |char| printer_errors.include?(char) }.count
+
+    return "#{num_of_printer_errors}/#{length_of_printer_string}"
+  end
+
+  def find_it(seq)
+    seq.find { |int| seq.count(int).odd? }
+  end
 
 end
